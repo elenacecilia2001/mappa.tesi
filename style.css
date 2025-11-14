@@ -86,7 +86,7 @@ button:hover {
 /* === NAVBAR SOTTILE CON VERO GLASS === */
 .menu {
   position: fixed;
-  top: 20px;
+  top: 50px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -108,7 +108,7 @@ button:hover {
 
 /* Link menu */
 .menu a {
-  color: #ddddddcc; /* chiaro ma leggibile */
+  color: #000000cc; /* chiaro ma leggibile */
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -119,7 +119,7 @@ button:hover {
 
 /* Hover delicato e moderno */
 .menu a:hover {
-  color: #eeeeeecc; /* leggermente più chiaro */
+  color: #888888cc; /* leggermente più chiaro */
   text-shadow:
     0 0 2px rgba(255, 255, 255, 0.4),
     0 0 4px rgba(255, 255, 255, 0.25);
