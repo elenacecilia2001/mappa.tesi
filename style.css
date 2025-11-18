@@ -234,33 +234,45 @@ body.scrollable::before {
   color: #0d47a1; /* Blu più scuro all'hover */
 }
 
-/* === GALLERIA IMMAGINI AFFIANCATE (CORREZIONE LAYOUT) === */
+/* === GALLERIA IMMAGINI AFFIANCATE (CORREZIONE DEFINITIVA) === */
+
 .gallery-row {
-  display: flex;
-  /* La riga qui sotto assicura che il layout a riga sia predefinito */
+  /* 1. ABILITA FLEXBOX */
+  display: flex; 
+  
+  /* 2. IMPOSTA IL DEFAULT A RIGA (affiancate) */
   flex-direction: row; 
-  gap: 20px;
+  
+  gap: 20px; /* Spazio tra le immagini */
   margin: 30px 0;
   justify-content: center;
-  flex-wrap: wrap; 
+  flex-wrap: wrap; /* Permette il ritorno a capo se lo spazio non basta */
 }
 
 .gallery-row img {
-  /* Assicuriamo che ogni immagine occupi circa metà spazio per desktop */
+  /* 3. IMPOSTA LA LARGHEZZA SU DESKTOP: 
+     Le immagini crescono, si riducono e hanno una larghezza di base del 45%, 
+     permettendone due affiancate con lo spazio (gap) in mezzo. */
   flex: 1 1 45%; 
   height: auto;
   object-fit: cover;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  /* Imposta un max-width per evitare che un'immagine si allarghi troppo */
+  max-width: 45%; 
 }
 
-/* Regola per cellulari (schermi stretti) - qui devono impilarsi! */
+
+/* === MEDIA QUERY (PER CELLULARI/SCHERMI PICCOLI) === */
+
 @media (max-width: 768px) {
   .gallery-row {
-    flex-direction: column; /* FORZA L'IMPILEAMENTO SUI CELLULARI */
+    /* FORZA L'IMPILEAMENTO SOLO SU SCHERMI STRETTI */
+    flex-direction: column; 
     align-items: center; 
   }
   .gallery-row img {
+    /* Su mobile, l'immagine può occupare quasi tutta la larghezza */
     max-width: 90%; 
   }
 }
@@ -284,6 +296,7 @@ iframe.soundcloud-player {
   border-radius: 10px; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombra più leggera */
 }
+
 
 
 
