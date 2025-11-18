@@ -138,9 +138,14 @@ button:hover {
 body.scrollable {
   overflow-y: auto; 
   /* NUOVO SFONDO: la tua immagine della mappa */
-  background: url('map-background.png') no-repeat center center fixed; 
+  /* Usa 'background-image' per maggiore chiarezza sul percorso */
+  background-image: url('map-background.png'); 
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Mantiene lo sfondo fisso durante lo scorrimento */
   background-size: cover; /* Assicura che l'immagine copra tutto lo sfondo */
-  color: #333; /* Colore testo generale scuro per lo sfondo chiaro */
+  background-position: center center; /* Centra l'immagine */
+  
+  color: #333; 
 }
 
 /* Contenitore principale del testo (Stile Glass Coerente) */
@@ -259,3 +264,4 @@ iframe.soundcloud-player {
   border-radius: 10px; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombra più leggera */
 }
+
