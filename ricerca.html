@@ -30,14 +30,25 @@
       Di seguito puoi consultare il documento che raccoglie le principali riflessioni teoriche e le fonti d'ispirazione relative a questo progetto, dal concetto di Soundscapes alla metodologia di registrazione.
     </p>
 
-        <div class="pdf-viewer-container">
-      <iframe 
-        src="Ascoltando una Barriera di suoni.pdf#toolbar=0&navpanes=0" 
-        style="width:100%; height:700px;" 
-        frameborder="0"
-        title="Anteprima del documento di ricerca">
-      </iframe>
-    </div>
+       <div class="pdf-viewer-container">
+  
+  <!-- SLIDER ZOOM -->
+  <div class="zoom-controls">
+    <label for="zoomSlider">Zoom: </label>
+    <input type="range" id="zoomSlider" min="50" max="200" value="100">
+  </div>
+
+  <!-- PDF con wrapper per permettere lo zoom -->
+  <div class="pdf-wrapper" id="pdfWrapper">
+    <iframe 
+      src="Ascoltando una Barriera di suoni.pdf#toolbar=0&navpanes=0" 
+      style="width:100%; height:700px;" 
+      frameborder="0">
+    </iframe>
+  </div>
+
+</div>
+
 
     <!-- 
       === LINK DI DOWNLOAD ===
@@ -68,3 +79,4 @@
 </body>
 
 </html>
+
