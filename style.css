@@ -29,7 +29,6 @@ html, body {
   z-index: 1;
 }
 
-/* Nessun overflow sulla homepage */
 body:not(.scrollable) {
   overflow: hidden !important;
 }
@@ -62,8 +61,8 @@ body:not(.scrollable) {
 
 .popup-content h2 {
   margin-bottom: 35px;
-  font-size: 2.2rem;
-  font-weight: 400; /* leggero */
+  font-size: 2rem;
+  font-weight: 400;
   text-align: center;
 }
 
@@ -136,7 +135,7 @@ body.scrollable::before {
    ========================================================= */
 .page-container {
   width: 90%;
-  max-width: 800px; /* default, sarà ampliato in ricerca.html */
+  max-width: 800px; /* default */
   margin: 120px auto 60px auto;
   padding: 40px;
   background: rgba(255, 255, 255, 0.85);
@@ -166,9 +165,9 @@ body.scrollable::before {
    TITOLI PRINCIPALI E SOTTOTITOLI
    ========================================================= */
 .page-container h1 {
-  font-size: 2rem;
-  font-weight: 400; /* leggero */
-  margin-bottom: 30px;
+  font-size: 1.9rem; /* leggermente più piccolo */
+  font-weight: 400;  /* leggero */
+  margin-bottom: 25px;
   text-align: center;
 }
 
@@ -177,7 +176,7 @@ body.scrollable::before {
   font-weight: 500;
   margin-top: 35px;
   margin-bottom: 20px;
-  text-align: right; /* allineato a destra */
+  text-align: left; /* ora a sinistra */
 }
 
 /* =========================================================
@@ -186,7 +185,7 @@ body.scrollable::before {
 .page-container p {
   font-size: 1rem;
   line-height: 1.8;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 /* =========================================================
@@ -202,9 +201,10 @@ body.scrollable::before {
 .gallery-row img,
 .page-container > img {
   width: calc(50% - 10px);
-  border-radius: 20px; /* leggermente arrotondate */
+  border-radius: 12px; /* leggermente arrotondate */
   object-fit: cover;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: border-radius 0.2s;
 }
 
 @media (max-width: 768px) {
@@ -230,8 +230,8 @@ body.scrollable::before {
    ========================================================= */
 .pdf-viewer-container iframe {
   width: 100%;
+  max-width: 1050px; /* leggermente più largo */
   height: 700px;
-  border: none;
+  border: none; /* spigoli netti */
   display: block;
 }
-
