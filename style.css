@@ -70,15 +70,15 @@ body:not(.scrollable) {
   margin-bottom: 20px;
   line-height: 1.7;
   font-size: 1.05rem;
-  letter-spacing: 0;  /* meno spazio tra lettere */
-  word-spacing: 0;    /* meno spazio tra parole */
+  letter-spacing: 0;
+  word-spacing: 0;
 }
 
 .popup-content button {
   margin-top: 35px;
   display: block;
   margin-left: auto;
-  margin-right: auto; /* centrale */
+  margin-right: auto;
   padding: 12px 28px;
   font-size: 1rem;
   border: none;
@@ -110,6 +110,31 @@ body:not(.scrollable) {
   text-decoration: none;
   font-weight: 500;
   font-size: 0.95rem;
+  padding: 5px 8px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+/* Hover effetto */
+.menu a:hover {
+  color: #4b61d1;
+}
+
+/* Pagina corrente evidenziata */
+.menu a.active {
+  color: #4b61d1;
+  font-weight: 700;
+}
+
+.menu a.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: #4b61d1;
+  border-radius: 1px;
 }
 
 /* =========================================================
@@ -136,7 +161,7 @@ body.scrollable::before {
    ========================================================= */
 .page-container {
   width: 90%;
-  max-width: 800px; /* default */
+  max-width: 800px; /* default per approfondimento */
   margin: 120px auto 60px auto;
   padding: 40px;
   background: rgba(255, 255, 255, 0.85);
@@ -166,16 +191,16 @@ body.scrollable::before {
    TITOLI PRINCIPALI E SOTTOTITOLI
    ========================================================= */
 .page-container h1 {
-  font-size: 1.8rem; /* leggermente più piccolo */
-  font-weight: 700;  /* più grassetto */
-  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
   text-align: center;
   letter-spacing: -0.5px;
 }
 
 .page-container h2 {
-  font-size: 1.3rem; /* leggermente più piccolo */
-  font-weight: 600;  /* più grassetto */
+  font-size: 1.3rem;
+  font-weight: 600;
   margin-top: 35px;
   margin-bottom: 15px;
   text-align: left;
@@ -189,12 +214,12 @@ body.scrollable::before {
   font-size: 1rem;
   line-height: 1.7;
   margin-bottom: 18px;
-  letter-spacing: 0;  /* ridotto */
-  word-spacing: 0;    /* ridotto */
+  letter-spacing: 0;
+  word-spacing: 0;
 }
 
 /* =========================================================
-   IMMAGINI E GALLERIE (con ombra e opacità)
+   IMMAGINI E GALLERIE (angoli arrotondati, ombra, opacità)
    ========================================================= */
 .gallery-row {
   display: flex;
@@ -206,7 +231,7 @@ body.scrollable::before {
 .gallery-row img,
 .page-container > img {
   width: calc(50% - 10px);
-  border-radius: 12px; /* leggermente arrotondate */
+  border-radius: 12px; /* arrotondate */
   object-fit: cover;
   box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   opacity: 0.95;
@@ -242,10 +267,9 @@ body.scrollable::before {
    ========================================================= */
 .pdf-viewer-container iframe {
   width: 100%;
-  max-width: 1050px; /* più largo */
+  max-width: 1050px; /* leggermente più largo */
   height: 700px;
   border: none; /* spigoli netti */
   display: block;
 }
-
 
