@@ -51,7 +51,7 @@ body:not(.scrollable) {
 .popup-content {
   background: rgba(255, 255, 255, 0.28);
   border-radius: 25px;
-  padding: 60px 80px; /* più aria interna */
+  padding: 60px 80px;
   max-width: 750px;
   color: #111;
   text-align: center;
@@ -60,15 +60,14 @@ body:not(.scrollable) {
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
 }
 
-/* SPAZIATURA PIÙ ARIOSA SOLO NEL POPUP */
 .popup-content h2 {
-  margin-bottom: 40px; /* titolo → testo */
-  font-size: 2.2rem;   
+  margin-bottom: 40px;
+  font-size: 2.2rem;
   font-weight: 700;
 }
 
 .popup-content p {
-  margin-bottom: 22px; 
+  margin-bottom: 22px;
   line-height: 1.7;
   font-size: 1.05rem;
 }
@@ -144,7 +143,7 @@ body.scrollable::before {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.9);
   overflow: visible !important;
-  text-align: justify; /* testo giustificato */
+  text-align: justify;
 }
 
 /* =========================================================
@@ -166,20 +165,20 @@ body.scrollable::before {
    TITOLI LEGGERI PER LE ALTRE PAGINE
    ========================================================= */
 .page-container h1 {
-  font-size: 2rem;    /* più piccolo */
-  font-weight: 600;   /* più leggero */
+  font-size: 2rem;
+  font-weight: 600;
   letter-spacing: -0.5px;
   text-align: center;
   margin-bottom: 30px;
 }
 
 .page-container h2 {
-  font-size: 1.3rem;  
-  font-weight: 500;   
+  font-size: 1.3rem;
+  font-weight: 500;
   letter-spacing: -0.3px;
   margin-top: 30px;
   margin-bottom: 18px;
-  text-align: center; /* se vuoi titoli centrati */
+  text-align: center;
 }
 
 /* =========================================================
@@ -201,28 +200,23 @@ body.scrollable::before {
   margin: 35px 0;
 }
 
-.gallery-row img {
+.gallery-row img,
+.page-container > img {
   width: calc(50% - 10px);
-  border-radius: 20px;
+  border-radius: 20px; /* angoli smussati */
   object-fit: cover;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 @media (max-width: 768px) {
-  .gallery-row img {
+  .gallery-row img,
+  .page-container > img {
     width: 100%;
   }
 }
 
-.page-container > img {
-  max-width: 100%;
-  margin: 30px auto;
-  display: block;
-  border-radius: 10px;
-}
-
 /* =========================================================
-   SOUNDCLOUD PLAYER (FIX)
+   SOUNDCLOUD PLAYER
    ========================================================= */
 .soundcloud-player {
   width: 100% !important;
@@ -233,8 +227,17 @@ body.scrollable::before {
 }
 
 /* =========================================================
-   PDF OVERLAY (per fullscreen)
+   PDF VIEWER
    ========================================================= */
+.pdf-viewer-container iframe {
+  width: 100%;
+  height: 700px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* PDF OVERLAY FULLSCREEN */
 .pdf-overlay {
   position: fixed;
   inset: 0;
@@ -249,8 +252,8 @@ body.scrollable::before {
   width: 100%;
   height: 100%;
   border: none;
+  border-radius: 15px;
 }
-
 
 .pdf-close-btn {
   position: absolute;
@@ -260,4 +263,32 @@ body.scrollable::before {
   color: white;
   cursor: pointer;
   z-index: 10000;
+}
+
+/* =========================================================
+   PULSANTI ZOOM PDF
+   ========================================================= */
+.pdf-zoom-btn {
+  position: absolute;
+  top: 20px;
+  right: 75px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.5);
+  font-size: 1.5rem;
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-left: 10px;
+}
+
+.pdf-zoom-btn:hover {
+  background: rgba(255,255,255,0.35);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
