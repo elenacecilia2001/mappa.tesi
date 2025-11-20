@@ -50,17 +50,17 @@ body:not(.scrollable) {
   align-items: center;
   justify-content: center;
   z-index: 30;
-  padding: 20px; /* Margine di sicurezza per schermi piccoli */
+  padding: 20px;
 }
 
 .popup-content {
   background: rgba(255, 255, 255, 0.28);
   border-radius: 25px;
   padding: 60px 80px;
-  width: 100%; /* Si adatta al contenitore */
+  width: 100%;
   max-width: 750px;
   color: #111;
-  text-align: justify; /* Su desktop ok */
+  text-align: justify; 
   backdrop-filter: blur(25px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.35);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.25);
@@ -95,13 +95,13 @@ body:not(.scrollable) {
   font-weight: 500;
 }
 
-/* MOBILE FIX (Applicato a schermi sotto 768px per includere telefoni grandi) */
+/* MOBILE FIX POPUP */
 @media (max-width: 768px) {
   .popup-content {
-    max-width: 100%; /* Usa lo spazio disponibile meno il padding del body */
-    padding: 30px 25px !important; /* Più aria interna */
+    max-width: 100%;
+    padding: 30px 25px !important;
     border-radius: 20px;
-    text-align: left !important; /* Fondamentale: allinea a sinistra su mobile */
+    text-align: left !important;
   }
   
   .popup-content h2 {
@@ -110,9 +110,9 @@ body:not(.scrollable) {
   }
 
   .popup-content p {
-    text-align: left !important; /* Forza allineamento a sinistra */
+    text-align: left !important;
     font-size: 0.95rem;
-    text-align-last: left; /* Fix extra per alcuni browser */
+    text-align-last: left;
   }
 }
 
@@ -131,7 +131,7 @@ body:not(.scrollable) {
   padding: 10px 35px;
   border-radius: 25px;
   z-index: 20;
-  white-space: nowrap; /* Evita che il menu vada a capo su desktop */
+  white-space: nowrap;
 }
 
 .menu a {
@@ -141,41 +141,28 @@ body:not(.scrollable) {
   font-size: 0.95rem;
   padding: 5px 8px;
   transition: all 0.25s ease;
+  position: relative;
 }
 
 .menu a:hover {
   color: #4b61d1;
 }
 
+/* Pagina attiva (SENZA LINEA SOTTO) */
 .menu a.active {
   color: #4b61d1;
   font-weight: 700;
 }
 
-.menu a.active::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 100%;
-  height: 2px;
-  background-color: #4b61d1;
-  border-radius: 1px;
-}
-
 /* NAVBAR MOBILE */
 @media (max-width: 600px) {
   .menu {
-    top: 20px; /* Un po' più in alto su mobile */
+    top: 20px;
     padding: 12px 20px !important;
-    gap: 10px !important; /* Meno spazio tra le voci */
+    gap: 10px !important;
     font-size: 0.8rem !important;
-    
-    /* Gestione larghezza menu */
-    width: 88%; /* Lascia margine ai lati */
+    width: 88%;
     max-width: 400px;
-    
-    /* Permetti di andare a capo se lo schermo è piccolissimo */
     flex-wrap: wrap; 
     justify-content: center;
   }
@@ -211,22 +198,22 @@ body.scrollable::before {
 .page-container {
   width: 90%;
   max-width: 800px;
-  margin: 140px auto 60px auto; /* Aumentato margine top per menu mobile */
+  margin: 140px auto 60px auto;
   padding: 40px;
   background: rgba(255, 255, 255, 0.85);
   border-radius: 20px;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.9);
   overflow: visible !important;
-  text-align: justify; /* Desktop */
+  text-align: justify;
 }
 
 /* MOBILE CONTAINER FIX */
 @media (max-width: 768px) {
   .page-container {
-    padding: 25px 20px; /* Meno padding interno */
-    margin-top: 130px; /* Spazio per menu che potrebbe andare su due righe */
-    text-align: left !important; /* Allinea a sinistra su mobile */
+    padding: 25px 20px;
+    margin-top: 130px;
+    text-align: left !important;
   }
 }
 
@@ -272,7 +259,7 @@ body.scrollable::before {
 /* MOBILE TEXT ALIGNMENT FIX */
 @media (max-width: 768px) {
   .page-container p {
-    text-align: left !important; /* Evita buchi nel testo */
+    text-align: left !important;
     text-align-last: left;
   }
 }
@@ -335,12 +322,11 @@ body.scrollable::before {
   height: 700px;
   border: none;
   border-radius: 10px;
-  background: #eee; /* Colore di sfondo mentre carica */
+  background: #eee;
 }
 
-/* Elemento visibile solo su mobile al posto dell'iframe */
 .mobile-pdf-alert {
-  display: none; /* Nascosto su PC */
+  display: none;
   background: #f0f0f0;
   padding: 30px;
   border-radius: 15px;
@@ -355,10 +341,9 @@ body.scrollable::before {
   text-align: center !important;
 }
 
-/* Nascondi iframe su schermi piccoli e mostra alert */
 @media (max-width: 768px) {
   .pdf-viewer-container iframe {
-    display: none !important; /* Iframe PDF non funziona bene su mobile */
+    display: none !important;
   }
   .mobile-pdf-alert {
     display: block !important;
