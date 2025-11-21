@@ -11,12 +11,12 @@ html, body {
   width: 100%;
   height: 100%;
   font-family: 'Inter', sans-serif;
-  background-color: #f7f7f7;
+  /* IMPORTANTE: Rimosso il colore di sfondo solido che copriva la mappa */
+  background-color: transparent; 
   overflow-x: hidden;
 }
 
-/* --- MAPPA DI SFONDO (HOME & INDEX) --- */
-/* Questa è la mappa interattiva (iframe) */
+/* --- MAPPA DI SFONDO (HOME & INDEX - IFRAME) --- */
 .map-frame {
   position: absolute;
   top: 0;
@@ -24,7 +24,7 @@ html, body {
   width: 100% !important;
   height: 100% !important;
   border: none;
-  z-index: 1;
+  z-index: -1; /* Mandata indietro */
 }
 
 body:not(.scrollable) {
@@ -107,11 +107,13 @@ body:not(.scrollable) {
   display: block;
 }
 
+/* Testo Popup: leggermente ridotto e alleggerito anche qui per coerenza */
 .popup-content p {
   text-align: left;
   margin-bottom: 20px;
   line-height: 1.7;
-  font-size: 1.05rem;
+  font-size: 0.95rem; 
+  font-weight: 300;
 }
 
 .popup-content button {
@@ -196,18 +198,17 @@ body:not(.scrollable) {
 
 body.scrollable {
   overflow-y: auto;
-}
-
-/* Metodo ::before per lo sfondo sfocato fisso */
-body.scrollable::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  /* Assicurati che l'immagine 'sfondo-sfocato.jpg' sia nella cartella */
+  /* Applichiamo lo sfondo direttamente al body */
   background-image: url('sfondo-sfocato.jpg');
   background-size: cover;
   background-position: center;
-  z-index: -2;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+/* Rimuoviamo eventuali pseudo-elementi che potrebbero bloccare la vista */
+body.scrollable::before {
+  display: none;
 }
 
 .page-container {
@@ -248,11 +249,16 @@ body.scrollable::before {
   margin-bottom: 20px;
 }
 
+/* --- TESTO PARAGRAFO AGGIORNATO --- */
 .page-container p {
-  font-size: 1.05rem;
+  /* Dimensione ridotta */
+  font-size: 0.92rem; 
+  /* Più leggero (Light) */
+  font-weight: 300; 
   line-height: 1.7;
   margin-bottom: 20px;
   text-align: left;
+  color: #222;
 }
 
 /* UTILITY PER CENTRARE */
@@ -260,7 +266,7 @@ body.scrollable::before {
   text-align: center !important;
 }
 
-/* --- GALLERIA --- */
+/* --- GALLERIA (SENZA MOVIMENTO) --- */
 .gallery-row {
   display: flex;
   flex-wrap: wrap;
@@ -274,13 +280,15 @@ body.scrollable::before {
   border-radius: 16px;
   object-fit: cover;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* Rimosso transition */
 }
 
+/* Rimosso hover transform, lasciato solo un leggero cambio ombra */
 .gallery-row img:hover,
 .page-container > img:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  opacity: 1;
+  /* Nessun movimento, solo ombra */
+  box-shadow: 0 6px 25px rgba(0,0,0,0.15); 
 }
 
 @media (max-width: 768px) {
@@ -344,36 +352,35 @@ body.scrollable::before {
   margin-top: 50px;
   display: flex;
   justify-content: center;
-  gap: 20px; /* Gap ridotto per icone più piccole */
+  gap: 20px;
 }
 
-/* STILE ICONE SOCIAL AGGIORNATO */
+/* ICONE SOCIAL LEGGERE E PICCOLE */
 .contact-icons a {
-  background: rgba(255,255,255,0.4); /* Sfondo leggerissimo */
-  border: 1px solid rgba(255,255,255,0.6); /* Bordo sottile */
+  background: rgba(255,255,255,0.4);
+  border: 1px solid rgba(255,255,255,0.6);
   
   border-radius: 15px; 
-  /* Dimensioni RIDOTTE */
-  width: 48px; 
-  height: 48px;
+  width: 45px; /* Più piccole */
+  height: 45px;
   
   display: flex;
   align-items: center;
   justify-content: center;
   
-  text-decoration: none !important; /* Rimuove sottolineatura forzatamente */
-  color: #333; /* Colore scuro leggero */
+  text-decoration: none !important; /* Niente sottolineatura */
+  color: #333;
   
   transition: all 0.3s ease;
-  font-size: 1.4rem; /* Icona interna proporzionata */
+  font-size: 1.2rem; 
 }
 
-/* Hover delicato */
 .contact-icons a:hover {
   background: #fff;
   color: #4b61d1;
-  transform: scale(1.1); /* Leggero zoom */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Ombra leggera */
+  /* Solo leggero zoom */
+  transform: scale(1.1); 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   border-color: #fff;
 }
 
