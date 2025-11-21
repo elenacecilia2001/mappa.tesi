@@ -11,7 +11,7 @@ html, body {
   width: 100%;
   height: 100%;
   font-family: 'Inter', sans-serif;
-  background-color: transparent; /* Lasciamo vedere lo sfondo */
+  background-color: transparent; 
   overflow-x: hidden;
 }
 
@@ -47,7 +47,6 @@ body:not(.scrollable) {
   z-index: 10;
   width: 600px;
   max-width: 90%;
-  /* NESSUNA ANIMAZIONE (Rimosso breathe) */
 }
 
 .loading-logo img {
@@ -68,7 +67,6 @@ body:not(.scrollable) {
   justify-content: center;
   z-index: 30;
   padding: 20px;
-  /* Solo dissolvenza in uscita */
   transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
@@ -91,10 +89,9 @@ body:not(.scrollable) {
   text-align: left;
 }
 
-/* Titolo Popup più leggero */
 .popup-title {
   font-size: 2.2rem;
-  font-weight: 600; /* Ridotto da 800 */
+  font-weight: 600;
   text-align: center !important;
   margin-bottom: 30px;
   line-height: 1.2;
@@ -103,12 +100,13 @@ body:not(.scrollable) {
   display: block;
 }
 
+/* MODIFICA QUI: Testo del popup centrato */
 .popup-content p {
-  text-align: left;
+  text-align: center !important; /* CENTRATO */
   margin-bottom: 20px;
   line-height: 1.7;
   font-size: 0.95rem;
-  font-weight: 300; /* Leggero */
+  font-weight: 300; 
 }
 
 .popup-content button {
@@ -127,8 +125,7 @@ body:not(.scrollable) {
 
 .popup-content button:hover {
   background: rgba(255, 255, 255, 0.9);
-  /* Rimossa trasformazione scala per evitare "movimenti" non voluti se non piacciono */
-  transform: none; 
+  transform: none;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
@@ -195,7 +192,6 @@ body:not(.scrollable) {
 
 body.scrollable {
   overflow-y: auto;
-  /* NUOVO SFONDO: mappa.png */
   background-image: url('mappa.png');
   background-size: cover;
   background-position: center;
@@ -228,10 +224,9 @@ body.scrollable::before {
   }
 }
 
-/* TITOLI PIÙ LEGGERI */
 .page-container h1 {
   font-size: 1.8rem;
-  font-weight: 500; /* Light/Medium */
+  font-weight: 500; 
   text-align: center;
   margin-bottom: 30px;
   color: #111;
@@ -239,24 +234,23 @@ body.scrollable::before {
 
 .page-container h2 {
   font-size: 1.35rem;
-  font-weight: 500; /* Light/Medium */
+  font-weight: 500; 
   text-align: left;
   margin-top: 40px;
   margin-bottom: 20px;
   color: #111;
 }
 
-/* TESTO PARAGRAFI LEGGERO */
+/* Nelle pagine interne il testo rimane a SINISTRA */
 .page-container p {
   font-size: 0.92rem;
-  font-weight: 300; /* Light */
+  font-weight: 300;
   line-height: 1.7;
   margin-bottom: 20px;
-  text-align: left;
+  text-align: left; 
   color: #222;
 }
 
-/* UTILITY PER CENTRARE */
 .text-center {
   text-align: center !important;
 }
@@ -272,7 +266,6 @@ body.scrollable::before {
 .gallery-row img,
 .page-container > img {
   width: calc(50% - 10px);
-  /* ANGOLI MENO ARROTONDATI */
   border-radius: 6px; 
   object-fit: cover;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
@@ -295,7 +288,7 @@ body.scrollable::before {
 .soundcloud-player {
   width: 100%;
   height: 166px;
-  border-radius: 6px; /* Coerente con le foto */
+  border-radius: 6px;
   margin-top: 30px;
   display: block;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
@@ -334,7 +327,7 @@ body.scrollable::before {
 /* --- CONTATTI --- */
 .email {
   font-size: 1.4rem;
-  font-weight: 600; /* Leggermente meno bold */
+  font-weight: 600;
   text-align: center !important;
   color: #4b61d1;
   margin-top: 10px;
